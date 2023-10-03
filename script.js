@@ -89,3 +89,30 @@ function findMissingNumber(num) {
 const numbers = [3, 0, 1, 4, 5, 2];
 const missing = findMissingNumber(numbers);
 console.log(`The missing number is: ${missing}`);
+
+// 7.Reverse a String: Write a function that takes a string as input and returns the string
+// reversed.
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+const inputString1 = "Hello, World!";
+const reversedString = reverseString(inputString1);
+console.log(reversedString); 
+
+// 8.Title Case: Write a function that takes a sentence as input and returns the sentence in
+// title case (the first letter of each word is capitalized).
+
+function toTitleCase(sentence) {
+  const words = sentence.split(" ");
+  const titleCaseWords = words.map(word => {
+    if (word.length === 0) {
+      return word; 
+    } else {
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
+    }
+  });
+  return titleCaseWords.join(" ");
+}
+const inputSentence = "this is a title case example";
+const titleCaseSentence = toTitleCase(inputSentence);
+console.log(titleCaseSentence); 
