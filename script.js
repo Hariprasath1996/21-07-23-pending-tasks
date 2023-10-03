@@ -116,3 +116,52 @@ function toTitleCase(sentence) {
 const inputSentence = "this is a title case example";
 const titleCaseSentence = toTitleCase(inputSentence);
 console.log(titleCaseSentence); 
+
+
+// 9.Anagram Checker: Write a function that checks whether two given strings are
+// anagrams of each other (contain the same characters but in a different order).
+
+function areAnagrams(str1, str2) {
+  str1 = str1.replace(/\s+/g, "").toLowerCase();
+  str2 = str2.replace(/\s+/g, "").toLowerCase();
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  const sortedStr1 = str1.split("").sort().join("");
+  const sortedStr2 = str2.split("").sort().join("");
+
+  return sortedStr1 === sortedStr2;
+}
+const string1 = "listen";
+const string2 = "silent";
+
+if (areAnagrams(string1, string2)) {
+  console.log(`"${string1}" and "${string2}" are anagrams.`);
+} else {
+  console.log(`"${string1}" and "${string2}" are not anagrams.`);
+}
+
+// 10.Longest Word: Write a function that takes a sentence as input and returns the
+// longest word in the sentence. If there are multiple words with the same length, return
+// the first one.
+
+function findLongestWord(sentence) {
+  const words = sentence.split(" ")
+  let longestWord = "";
+  let maxLength = 0;
+  for (const word of words) {
+    const cleanedWord = word.replace(/[^a-zA-Z]/g, "");
+
+    if (cleanedWord.length > maxLength) {
+      longestWord = cleanedWord;
+      maxLength = cleanedWord.length;
+    }
+  }
+
+  return longestWord;
+}
+
+const inputSentence1 = "The quick brown fox jumps over the lazy dog.";
+const longestWord = findLongestWord(inputSentence1);
+console.log(`The longest word is: "${longestWord}"`);
+
